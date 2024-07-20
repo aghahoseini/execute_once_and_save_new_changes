@@ -1,0 +1,60 @@
+
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'show databases;'
+
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'use movies; show tables'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'use animations; show tables'
+
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'select * from movies.FightClub'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'select * from movies.TheMist'
+
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'select * from animations.AOT'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'select * from animations.RickandMorty'
+
+
+
+---------------------------------------------
+
+
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'drop database animations;'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'use movies; drop table FightClub'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'DELETE FROM movies.TheMist WHERE id=1;'
+
+
+docker stop mysql_dump_lab-db-1 
+docker start mysql_dump_lab-db-1 
+
+
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'show databases;'
+
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'use movies; show tables'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'use animations; show tables'
+
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'select * from movies.FightClub'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'select * from movies.TheMist'
+
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'select * from animations.AOT'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'select * from animations.RickandMorty'
+
+-----------------------------------------------
+
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'CREATE DATABASE IF NOT EXISTS jadid_db;'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'CREATE TABLE IF NOT EXISTS  jadid_db.jadid_tb (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,fname VARCHAR(30) NOT NULL);'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'INSERT INTO   jadid_db.jadid_tb ( fname ) VALUES ("Edward Norton"),("Helena Bonham Carter");'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'INSERT INTO  movies.TheMist ( fname ) VALUES ("jadid_row");'
+
+
+docker stop mysql_dump_lab-db-1 
+docker start mysql_dump_lab-db-1 
+
+
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'show databases;'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'use movies; show tables'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'select * from movies.TheMist'
+
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'use jadid_db; show tables'
+mysql -u root -p123 -P 3307 -h 127.0.0.1 -e 'select * from jadid_db.jadid_tb'
+
+
+-------------------------------------------------------------------------------
+
+the end .....
